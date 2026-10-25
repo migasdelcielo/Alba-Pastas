@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALBA · Generador de QR & Mockup de Etiqueta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #F7F6F2;
+      --card-bg: #FFFFFF;
+      --text-main: #1D1D1B;
+      --text-muted: #6B6861;
+      --border: #E4E0D5;
+      --accent: #B25232;
+      --accent-hover: #974326;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      padding: 30px 16px;
+      line-height: 1.5;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .main-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    .panel-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    input[type="text"], input[type="url"] {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+    }
+
+    .help-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg);
+    }
+
+    /* Etiqueta Mockup */
+    .mockup-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #EDEAE1;
+      border-radius: 12px;
+      padding: 30px 20px;
+      margin-bottom: 20px;
+    }
+
+    .etiqueta {
+      background: #FFFFFF;
+      width: 250px;
+      border-radius: 14px;
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid #E0DCD3;
+      position: relative;
+    }
+
+    .etiqueta-brand-sub {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .etiqueta-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .qr-box {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 12px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      padding: 6px;
+      border-radius: 8px;
+    }
+
+    .qr-box canvas, .qr-box img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .etiqueta-cta {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .etiqueta-desc {
+      font-size: 9.5px;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    .etiqueta-divider {
+      height: 1px;
+      background: #F0EDE5;
+      margin: 12px 0 8px 0;
+    }
+
+    .etiqueta-footer {
+      font-size: 8.5px;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .tips-list {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tips-list strong {
+      color: var(--text-main);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1>ALBA · Diseñador de Etiqueta & QR</h1>
+      <p>Generá el código QR definitivo y previsualizá la etiqueta adhesiva lista para imprenta.</p>
+    </header>
+
+    <div class="main-grid">
+      
+      <!-- Panel de Configuración -->
+      <div class="panel">
+        <h2 class="panel-title">⚙️ Personalizar Enlace</h2>
+
+        <div class="form-group">
+          <label for="urlInput">URL de destino (Web / Linktree / Dub / Vercel)</label>
+          <input type="url" id="urlInput" value="https://migasdelcielo.github.io/Alba-Pastas/" placeholder="https://tudominio.com">
+          <p class="help-text">Colocá el enlace de la web donde se alojará el archivo <code>index.html</code>.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="ctaInput">Texto de llamada a la acción (CTA)</label>
+          <input type="text" id="ctaInput" value="¡Escaneá aquí con tu celular!">
+        </div>
+
+        <div class="form-group">
+          <label for="descInput">Texto secundario</label>
+          <input type="text" id="descInput" value="Instrucciones de cocción, conservación y recetas de salsas.">
+        </div>
+
+        <button class="btn btn-primary" onclick="updateQR()">Actualizar Código QR</button>
+        <button class="btn btn-outline" onclick="downloadQR()">Descargar QR (PNG Alta Calidad)</button>
+        <a href="index.html" target="_blank" class="btn btn-outline">Abrir la Web de Recetas</a>
+      </div>
+
+      <!-- Mockup de Etiqueta -->
+      <div class="panel">
+        <h2 class="panel-title">🏷️ Previsualización de la Etiqueta</h2>
+        
+        <div class="mockup-container">
+          <div class="etiqueta" id="etiquetaMockup">
+            <div class="etiqueta-brand-sub">Pastas Artesanales</div>
+            <div class="etiqueta-brand">ALBA</div>
+
+            <div class="qr-box" id="qrcode"></div>
+
+            <div class="etiqueta-cta" id="mockupCta">¡Escaneá aquí con tu celular!</div>
+            <div class="etiqueta-desc" id="mockupDesc">Instrucciones de cocción, conservación y recetas de salsas.</div>
+            
+            <div class="etiqueta-divider"></div>
+            <div class="etiqueta-footer">Hechas con amor · Pensadas para compartir</div>
+          </div>
+        </div>
+
+        <!-- Consejos de Imprenta -->
+        <div class="tips-list">
+          <div>
+            <strong>1. Material recomendado para el packaging:</strong><br>
+            Pedir en la imprenta <em>Autoadhesivo Vinílico o Polipropileno (BOPP) con laminado mate</em>. Este material resiste la condensación, la grasa y el frío del freezer sin despegarse ni humedecer la tinta.
+          </div>
+          <div>
+            <strong>2. Tamaño sugerido del QR:</strong><br>
+            El cuadrado del QR debe medir al menos <strong>2 cm × 2 cm</strong> para que cualquier celular lo enfoque al instante sin importar la curvatura de la bandeja o bolsa.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let qr = null;
+
+    function renderQR(url) {
+      const container = document.getElementById('qrcode');
+      container.innerHTML = '';
+      qr = new QRCode(container, {
+        text: url,
+        width: 140,
+        height: 140,
+        colorDark : "#1D1D1B",
+        colorLight : "#FFFFFF",
+        correctLevel : QRCode.CorrectLevel.M
+      });
+    }
+
+    function updateQR() {
+      const url = document.getElementById('urlInput').value.trim();
+      const cta = document.getElementById('ctaInput').value.trim();
+      const desc = document.getElementById('descInput').value.trim();
+
+      if (url) renderQR(url);
+      if (cta) document.getElementById('mockupCta').textContent = cta;
+      if (desc) document.getElementById('mockupDesc').textContent = desc;
+    }
+
+    function downloadQR() {
+      const img = document.querySelector('#qrcode img');
+      if (img && img.src) {
+        const a = document.createElement('a');
+        a.href = img.src;
+        a.download = 'qr-alba-pastas.png';
+        a.click();
+      } else {
+        const canvas = document.querySelector('#qrcode canvas');
+        if (canvas) {
+          const a = document.createElement('a');
+          a.href = canvas.toDataURL('image/png');
+          a.download = 'qr-alba-pastas.png';
+          a.click();
+        }
+      }
+    }
+
+    // Inicializar al cargar
+    window.onload = () => {
+      renderQR(document.getElementById('urlInput').value);
+    };
+  </script>
+</body>
+</html>

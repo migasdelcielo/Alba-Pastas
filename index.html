@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ALBA · Pastas Artesanales | Preparación & Recetas</title>
+  <meta name="description" content="Instrucciones de cocción, conservación y recetas de salsas para tus sorrentinos ALBA Pastas Artesanales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #FAFAF7;
+      --card-bg: #FFFFFF;
+      --card-subtle: #F4F1EB;
+      --text-main: #1D1D1B;
+      --text-muted: #6B6861;
+      --text-light: #949088;
+      --border: #E8E5DD;
+      --border-subtle: #F0EDE5;
+      --accent: #B25232;
+      --accent-soft: #F9EFEA;
+      --accent-hover: #974326;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-subtle: 0 4px 20px -2px rgba(29, 29, 27, 0.04);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 540px;
+      padding: 0 16px 80px 16px;
+      position: relative;
+    }
+
+    /* Minimal Header */
+    header {
+      padding: 36px 8px 24px 8px;
+      text-align: center;
+    }
+
+    .brand-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .brand-tagline {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+      font-family: var(--font-serif);
+    }
+
+    /* Sticky Navigation Tabs */
+    .nav-tabs-wrapper {
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      margin-bottom: 24px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      gap: 4px;
+    }
+
+    .nav-tab {
+      flex: 1;
+      text-align: center;
+      padding: 9px 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .nav-tab.active, .nav-tab:hover {
+      background: var(--text-main);
+      color: #FFFFFF;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 32px;
+      scroll-margin-top: 70px;
+    }
+
+    .section-header {
+      margin-bottom: 16px;
+      padding-left: 4px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--text-main);
+    }
+
+    /* Clean Card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    /* Steps List */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--card-subtle);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .step-body {
+      flex: 1;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Kitchen Timer Component */
+    .timer-container {
+      background: var(--accent-soft);
+      border: 1px solid rgba(178, 82, 50, 0.2);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .timer-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .timer-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .timer-display {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-main);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    .timer-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .timer-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Tips Box */
+    .tips-box {
+      margin-top: 18px;
+      background: var(--card-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      border: 1px dashed var(--border);
+    }
+
+    .tips-header {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tips-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tips-list li {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.45;
+    }
+
+    .tips-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 16px;
+      top: -2px;
+    }
+
+    /* Conservation Grid */
+    .conservation-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .conservation-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px;
+      background: var(--card-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .conservation-icon {
+      font-size: 20px;
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .conservation-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .conservation-text strong {
+      color: var(--text-main);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .badge-highlight {
+      display: inline-block;
+      background: #EAF3EC;
+      color: #2D6A4F;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-top: 4px;
+    }
+
+    /* Sauces Tabs / Carousel */
+    .sauces-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .sauces-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sauce-pill {
+      white-space: nowrap;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 999px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .sauce-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .sauce-card {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .sauce-card.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .sauce-img-wrapper {
+      height: 190px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background: #E8E5DD;
+    }
+
+    .sauce-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .sauce-img-overlay {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .sauce-content {
+      padding: 22px;
+    }
+
+    .sauce-name {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .sauce-ideal {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .recipe-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-light);
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .ingredient-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .ingredient-list li {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .ingredient-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .sauce-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sauce-step-item {
+      display: flex;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .sauce-step-num {
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 18px;
+    }
+
+    .sauce-note {
+      margin-top: 16px;
+      padding: 12px 14px;
+      background: var(--card-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      border-left: 3px solid var(--accent);
+    }
+
+    /* About & Social */
+    .about-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .about-story {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .social-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+    }
+
+    .btn-whatsapp:hover {
+      background: #20BA5A;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-instagram {
+      background: var(--card-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-instagram:hover {
+      background: #EBE7DD;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 8px 12px 8px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .heart {
+      color: #D32F2F;
+      display: inline-block;
+    }
+
+    /* SVG Icons Helper */
+    .icon {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Brand Header -->
+    <header>
+      <span class="brand-eyebrow">Pastas Artesanales</span>
+      <h1 class="brand-title">ALBA</h1>
+      <p class="brand-tagline">Hechas con amor. Pensadas para compartir.</p>
+    </header>
+
+    <!-- Floating / Sticky Navigation -->
+    <div class="nav-tabs-wrapper">
+      <nav class="nav-tabs" aria-label="Navegación rápida">
+        <a href="#coccion" class="nav-tab active">
+          <span>Cocción</span>
+        </a>
+        <a href="#conservacion" class="nav-tab">
+          <span>Conservación</span>
+        </a>
+        <a href="#salsas" class="nav-tab">
+          <span>Salsas</span>
+        </a>
+        <a href="#contacto" class="nav-tab">
+          <span>Nosotros</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- SECCIÓN 1: CÓMO COCINAR -->
+    <section id="coccion">
+      <div class="section-header">
+        <span class="section-eyebrow">Guía de preparación</span>
+        <h2 class="section-title">El secreto está en la cocción</h2>
+      </div>
+
+      <div class="card">
+        <div class="steps-list">
+          
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-body">
+              <h3 class="step-title">Prepará la olla</h3>
+              <p class="step-desc">Utilizá una olla amplia con abundante agua y agregá sal cuando el agua rompa el hervor.</p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-body">
+              <h3 class="step-title">Del freezer a la olla</h3>
+              <p class="step-desc">Incorporá los sorrentinos directamente congelados, <strong>sin descongelarlos previamente</strong>.</p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-body">
+              <h3 class="step-title">Cociná con cuidado</h3>
+              <p class="step-desc">Mantené una ebullición suave y mové los sorrentinos muy delicadamente para evitar que se peguen al fondo o entre sí.</p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-body">
+              <h3 class="step-title">Retiralos con delicadeza</h3>
+              <p class="step-desc">Utilizá siempre una espumadera para sacarlos. Evitá volcarlos bruscamente en un colador para que no se rompan.</p>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-number">5</div>
+            <div class="step-body">
+              <h3 class="step-title">Terminá en la salsa</h3>
+              <p class="step-desc">Pasá los sorrentinos directamente a la sartén con la salsa caliente durante unos segundos, integrando los sabores con suavidad.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Timer Tool -->
+        <div class="timer-container">
+          <div class="timer-info">
+            <span class="timer-label">Temporizador de cocina</span>
+            <span class="timer-display" id="timerDisplay">05:00</span>
+          </div>
+          <button class="timer-btn" id="timerBtn" onclick="toggleTimer()">
+            <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span id="timerBtnText">Iniciar 5 min</span>
+          </button>
+        </div>
+
+        <!-- Tips de cocina -->
+        <div class="tips-box">
+          <div class="tips-header">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Tips de cocina ALBA
+          </div>
+          <ul class="tips-list">
+            <li>No llenes demasiado la olla: cociná en tandas si es necesario para mantener la temperatura del agua.</li>
+            <li>Evitá revolver enérgicamente.</li>
+            <li>Tené la salsa lista y caliente antes de retirar la pasta.</li>
+            <li>Serví inmediatamente para disfrutar su textura y temperatura ideales.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: CONSERVACIÓN -->
+    <section id="conservacion">
+      <div class="section-header">
+        <span class="section-eyebrow">Almacenamiento</span>
+        <h2 class="section-title">Del freezer a tu mesa</h2>
+      </div>
+
+      <div class="card">
+        <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 14px;">
+          Para disfrutar tus sorrentinos ALBA en las mejores condiciones, es fundamental mantenerlos congelados hasta el segundo exacto de su cocción.
+        </p>
+
+        <div class="conservation-grid">
+          
+          <div class="conservation-item">
+            <span class="conservation-icon">❄️</span>
+            <div class="conservation-text">
+              <strong>Cadena de frío continua</strong>
+              Mantené el producto en el freezer. Evitá interrumpir la cadena de frío durante el traslado y almacenamiento.
+            </div>
+          </div>
+
+          <div class="conservation-item">
+            <span class="conservation-icon">⚠️</span>
+            <div class="conservation-text">
+              <strong>Nunca descongelar antes</strong>
+              No descongeles los sorrentinos a temperatura ambiente; deben ingresar rígidos al agua hirviendo.
+            </div>
+          </div>
+
+          <div class="conservation-item">
+            <span class="conservation-icon">⏳</span>
+            <div class="conservation-text">
+              <strong>Tiempo de vida útil</strong>
+              Duran de 2 a 3 meses en el freezer conservando su sabor y textura artesanal.
+              <div><span class="badge-highlight">Duración: 2 a 3 meses</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: RECETARIO DE SALSAS -->
+    <section id="salsas">
+      <div class="section-header">
+        <span class="section-eyebrow">Acompañamientos</span>
+        <h2 class="section-title">Recetario de salsas</h2>
+      </div>
+
+      <!-- Selector pills -->
+      <div class="sauces-nav" role="tablist">
+        <button class="sauce-pill active" onclick="showSauce('champis', this)">🍄 Champiñones</button>
+        <button class="sauce-pill" onclick="showSauce('rosa', this)">🌸 Rosa casera</button>
+        <button class="sauce-pill" onclick="showSauce('fileto', this)">🍅 Fileto</button>
+        <button class="sauce-pill" onclick="showSauce('quesos', this)">🧀 Cuatro quesos</button>
+      </div>
+
+      <!-- Salsa 1: Champiñones -->
+      <div id="sauce-champis" class="sauce-card active">
+        <div class="sauce-img-wrapper">
+          <img class="sauce-img" src="https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=800&q=80" alt="Salsa cremosa de champiñones" loading="lazy">
+          <div class="sauce-img-overlay">⏱️ 15–20 min</div>
+        </div>
+        <div class="sauce-content">
+          <h3 class="sauce-name">Salsa cremosa de champiñones</h3>
+          <span class="sauce-ideal">Ideal para: Pollo y queso azul</span>
+
+          <div class="recipe-subtitle">Ingredientes</div>
+          <ul class="ingredient-list">
+            <li>200 g de champiñones</li>
+            <li>200 ml de crema de leche</li>
+            <li>1 diente de ajo pequeño</li>
+            <li>1 cucharada de aceite o manteca</li>
+            <li>Sal, pimienta y perejil a gusto</li>
+            <li>Queso parmesano (opcional)</li>
+          </ul>
+
+          <div class="recipe-subtitle">Preparación paso a paso</div>
+          <div class="sauce-steps">
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">1.</span>
+              <span>Limpiá y cortá los champiñones en láminas finas.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">2.</span>
+              <span>Dorá el ajo picado en el aceite o manteca a fuego medio.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">3.</span>
+              <span>Incorporá los champiñones y cociná hasta que pierdan parte de su humedad.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">4.</span>
+              <span>Agregá la crema y cociná a fuego bajo hasta que espese ligeramente.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">5.</span>
+              <span>Condimentá a gusto y terminá con perejil fresco picado y parmesano.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salsa 2: Salsa Rosa -->
+      <div id="sauce-rosa" class="sauce-card">
+        <div class="sauce-img-wrapper">
+          <img class="sauce-img" src="https://images.unsplash.com/photo-1572441713132-c542fc4fe282?auto=format&fit=crop&w=800&q=80" alt="Salsa rosa casera" loading="lazy">
+          <div class="sauce-img-overlay">⏱️ 15 min</div>
+        </div>
+        <div class="sauce-content">
+          <h3 class="sauce-name">Salsa rosa casera</h3>
+          <span class="sauce-ideal">Ideal para: Jamón y queso</span>
+
+          <div class="recipe-subtitle">Ingredientes</div>
+          <ul class="ingredient-list">
+            <li>200 g de tomate triturado o puré de tomate</li>
+            <li>100 ml de crema de leche</li>
+            <li>1/2 cebolla pequeña</li>
+            <li>1 cucharada de aceite</li>
+            <li>Sal, pimienta y albahaca a gusto</li>
+          </ul>
+
+          <div class="recipe-subtitle">Preparación paso a paso</div>
+          <div class="sauce-steps">
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">1.</span>
+              <span>Picá finamente la cebolla.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">2.</span>
+              <span>Rehogala en una sartén con el aceite hasta que quede transparente.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">3.</span>
+              <span>Incorporá el tomate y cociná a fuego bajo durante 8–10 minutos.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">4.</span>
+              <span>Agregá la crema y mezclá suavemente hasta lograr un color rosado uniforme.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">5.</span>
+              <span>Condimentá a gusto y decorá con hojas de albahaca fresca.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salsa 3: Fileto -->
+      <div id="sauce-fileto" class="sauce-card">
+        <div class="sauce-img-wrapper">
+          <img class="sauce-img" src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?auto=format&fit=crop&w=800&q=80" alt="Salsa fileto tradicional" loading="lazy">
+          <div class="sauce-img-overlay">⏱️ 20 min</div>
+        </div>
+        <div class="sauce-content">
+          <h3 class="sauce-name">Salsa fileto tradicional</h3>
+          <span class="sauce-ideal">Ideal para: Jamón y queso</span>
+
+          <div class="recipe-subtitle">Ingredientes</div>
+          <ul class="ingredient-list">
+            <li>400 g de tomate triturado</li>
+            <li>1 diente de ajo</li>
+            <li>1 cucharada de aceite de oliva</li>
+            <li>Albahaca fresca, sal y pimienta a gusto</li>
+          </ul>
+
+          <div class="recipe-subtitle">Preparación paso a paso</div>
+          <div class="sauce-steps">
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">1.</span>
+              <span>Calentá el aceite de oliva y perfumalo con el ajo picado a fuego medio.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">2.</span>
+              <span>Agregá el tomate triturado con cuidado.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">3.</span>
+              <span>Cociná a fuego bajo durante 15–20 minutos, revolviendo de vez en cuando.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">4.</span>
+              <span>Condimentá y añadí las hojas de albahaca fresca al final del fuego.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salsa 4: Cuatro Quesos -->
+      <div id="sauce-quesos" class="sauce-card">
+        <div class="sauce-img-wrapper">
+          <img class="sauce-img" src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=800&q=80" alt="Salsa cuatro quesos" loading="lazy">
+          <div class="sauce-img-overlay">⏱️ 10–15 min</div>
+        </div>
+        <div class="sauce-content">
+          <h3 class="sauce-name">Salsa cuatro quesos</h3>
+          <span class="sauce-ideal">Ideal para: Jamón y queso</span>
+
+          <div class="recipe-subtitle">Ingredientes</div>
+          <ul class="ingredient-list">
+            <li>200 ml de crema de leche</li>
+            <li>30 g de mozzarella</li>
+            <li>30 g de queso parmesano rallado</li>
+            <li>30 g de queso cremoso</li>
+            <li>20 g de queso azul (opcional)</li>
+            <li>Pimienta a gusto</li>
+          </ul>
+
+          <div class="recipe-subtitle">Preparación paso a paso</div>
+          <div class="sauce-steps">
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">1.</span>
+              <span>Calentá la crema a fuego suave sin permitir que hierva intensamente.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">2.</span>
+              <span>Incorporá los quesos de a poco, mezclando constantemente hasta que fundan.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">3.</span>
+              <span>Agregá pimienta y ajustá la consistencia con un toque de agua caliente de cocción si fuera necesario.</span>
+            </div>
+            <div class="sauce-step-item">
+              <span class="sauce-step-num">4.</span>
+              <span>Serví de inmediato bien caliente sobre los sorrentinos.</span>
+            </div>
+          </div>
+
+          <div class="sauce-note">
+            💡 <strong>Nota del chef:</strong> Si utilizás queso azul, recordá que su sabor es intenso; podés reducir la cantidad para una salsa más suave y equilibrada.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN 4: NOSOTROS & CONTACTO -->
+    <section id="contacto">
+      <div class="about-card">
+        <span class="brand-eyebrow">Sobre Nosotros</span>
+        <h2 class="section-title" style="margin-bottom: 12px;">El arte de disfrutar la pasta</h2>
+        
+        <p class="about-story">
+          Cada comienzo tiene una historia, y la nuestra nace del amor, los recuerdos y las ganas de compartir algo rico.<br><br>
+          En ALBA elaboramos pastas artesanales con dedicación, cuidando cada detalle para que disfrutes en tu mesa de un plato especial.<br><br>
+          <strong>Gracias por elegir ALBA y dejarnos formar parte de tu mesa.</strong>
+        </p>
+
+        <div class="social-actions">
+          <a id="btnWhatsApp" href="https://wa.me/5491100000000?text=Hola%20ALBA!%20Prob%C3%A9%20sus%20sorrentinos%20y%20me%20encantaron.%20Quisiera%20hacer%20un%20pedido%20o%20consulta." target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+            </svg>
+            <span>Hacer un pedido por WhatsApp</span>
+          </a>
+
+          <a id="btnInstagram" href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-instagram">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span id="labelInstagram">Seguinos en Instagram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>ALBA Pastas Artesanales · Hechas con amor <span class="heart">❤️</span></p>
+      <p style="margin-top: 4px; opacity: 0.7;">¡Buen provecho!</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // --- CONFIGURACIÓN RÁPIDA DE LA CLIENTA ---
+    const CONFIG = {
+      // Reemplazar con el número de teléfono con código de país (ej: 5491123456789)
+      whatsappNumber: "5491100000000",
+      // Mensaje inicial de WhatsApp
+      whatsappMessage: "¡Hola ALBA! Probé sus sorrentinos y me encantaron. Quisiera hacer una consulta o pedido.",
+      // Usuario de Instagram (sin el @)
+      instagramUser: "alba.pastas"
+    };
+
+    // Aplicar configuración a los botones
+    document.addEventListener("DOMContentLoaded", () => {
+      const waBtn = document.getElementById("btnWhatsApp");
+      const igBtn = document.getElementById("btnInstagram");
+      const igLabel = document.getElementById("labelInstagram");
+
+      if (waBtn && CONFIG.whatsappNumber) {
+        waBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+      }
+
+      if (igBtn && CONFIG.instagramUser) {
+        igBtn.href = `https://instagram.com/${CONFIG.instagramUser}`;
+        if (igLabel) igLabel.textContent = `@${CONFIG.instagramUser} en Instagram`;
+      }
+    });
+
+    // --- INTERACTIVIDAD DE SALSAS ---
+    function showSauce(id, btn) {
+      document.querySelectorAll('.sauce-card').forEach(card => card.classList.remove('active'));
+      document.querySelectorAll('.sauce-pill').forEach(pill => pill.classList.remove('active'));
+
+      const target = document.getElementById(`sauce-${id}`);
+      if (target) {
+        target.classList.add('active');
+        btn.classList.add('active');
+      }
+    }
+
+    // --- TEMPORIZADOR DE COCCIÓN (5 MINUTOS) ---
+    let timerDuration = 5 * 60; // 5 minutos por defecto
+    let timerRemaining = timerDuration;
+    let timerInterval = null;
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const s = (seconds % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timerBtn');
+      const text = document.getElementById('timerBtnText');
+      const display = document.getElementById('timerDisplay');
+
+      if (timerInterval) {
+        // Pausar / reiniciar
+        clearInterval(timerInterval);
+        timerInterval = null;
+        timerRemaining = timerDuration;
+        display.textContent = formatTime(timerRemaining);
+        display.style.color = "var(--text-main)";
+        text.textContent = "Iniciar 5 min";
+        btn.style.background = "var(--accent)";
+      } else {
+        // Iniciar
+        text.textContent = "Pausar / Reiniciar";
+        btn.style.background = "#666";
+
+        timerInterval = setInterval(() => {
+          timerRemaining--;
+          display.textContent = formatTime(timerRemaining);
+
+          if (timerRemaining <= 0) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            display.textContent = "¡LISTOS!";
+            display.style.color = "#2D6A4F";
+            text.textContent = "Reiniciar";
+            btn.style.background = "var(--accent)";
+            
+            // Sonido beep suave con Web Audio API
+            playBeep();
+          }
+        }, 1000);
+      }
+    }
+
+    function playBeep() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.frequency.value = 660; // nota E5
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.2);
+      } catch (e) {
+        console.log("Audio not supported or permitted");
+      }
+    }
+
+    // Actualizar nav activa al scrollear
+    const sections = document.querySelectorAll("section");
+    const navTabs = document.querySelectorAll(".nav-tab");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navTabs.forEach(tab => {
+        tab.classList.remove("active");
+        if (tab.getAttribute("href") === `#${current}`) {
+          tab.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

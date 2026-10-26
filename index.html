@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Metadatos Básicos -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>ALBA · Pastas Artesanales | Preparación & Recetas</title>
-  <meta name="description" content="Instrucciones de cocción, conservación y recetas de salsas para tus sorrentinos ALBA Pastas Artesanales.">
+  <meta name="description" content="Instrucciones exclusivas de cocción, conservación y recetas de salsas para tus sorrentinos ALBA.">
+  
+  <!-- BLINDAJE DE SEGURIDAD (HTTP Meta Headers) -->
+  <!-- 1. Content Security Policy: Bloquea la inyección de scripts externos no autorizados, ataques XSS y robo de datos -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none';">
+  
+  <!-- 2. Anti-Clickjacking: Impide que sitios maliciosos incrusten tu página dentro de un iframe falso -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  
+  <!-- 3. Previene ataques de adivinación de tipo MIME (MIME-sniffing) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  
+  <!-- 4. Política de Privacidad: No envía la URL de origen a sitios externos -->
+  <meta name="referrer" content="no-referrer">
+  
+  <!-- 5. Permissions-Policy: Desactiva por completo hardware y APIs del navegador (cámara, micrófono, geolocalización, pagos) -->
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), display-capture=()">
+
+  <!-- Tipografía -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -21,7 +40,6 @@
       --border-subtle: #F0EDE5;
       --accent: #B25232;
       --accent-soft: #F9EFEA;
-      --accent-hover: #974326;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
@@ -52,13 +70,13 @@
     .container {
       width: 100%;
       max-width: 540px;
-      padding: 0 16px 80px 16px;
+      padding: 0 16px 60px 16px;
       position: relative;
     }
 
     /* Minimal Header */
     header {
-      padding: 36px 8px 24px 8px;
+      padding: 40px 8px 24px 8px;
       text-align: center;
     }
 
@@ -99,7 +117,7 @@
 
     .nav-tabs {
       display: flex;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
@@ -112,7 +130,7 @@
     .nav-tab {
       flex: 1;
       text-align: center;
-      padding: 9px 4px;
+      padding: 10px 4px;
       font-size: 13px;
       font-weight: 600;
       color: var(--text-muted);
@@ -122,7 +140,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
     }
 
     .nav-tab.active, .nav-tab:hover {
@@ -525,61 +542,29 @@
       border-left: 3px solid var(--accent);
     }
 
-    /* About & Social */
-    .about-card {
+    /* Minimal Closing Box */
+    .closing-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 28px 24px;
+      padding: 30px 24px;
       text-align: center;
       box-shadow: var(--shadow-subtle);
     }
 
-    .about-story {
+    .closing-title {
       font-family: var(--font-serif);
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .social-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .btn-whatsapp {
-      background: #25D366;
-      color: #FFFFFF;
-    }
-
-    .btn-whatsapp:hover {
-      background: #20BA5A;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
-    }
-
-    .btn-instagram {
-      background: var(--card-subtle);
+      font-size: 22px;
+      margin-bottom: 8px;
       color: var(--text-main);
-      border: 1px solid var(--border);
     }
 
-    .btn-instagram:hover {
-      background: #EBE7DD;
+    .closing-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 440px;
+      margin: 0 auto;
     }
 
     footer {
@@ -594,7 +579,6 @@
       display: inline-block;
     }
 
-    /* SVG Icons Helper */
     .icon {
       width: 18px;
       height: 18px;
@@ -618,20 +602,17 @@
       <p class="brand-tagline">Hechas con amor. Pensadas para compartir.</p>
     </header>
 
-    <!-- Floating / Sticky Navigation -->
+    <!-- Floating / Sticky Navigation (Solo Preparación & Acompañamiento) -->
     <div class="nav-tabs-wrapper">
-      <nav class="nav-tabs" aria-label="Navegación rápida">
+      <nav class="nav-tabs" aria-label="Navegación de preparación">
         <a href="#coccion" class="nav-tab active">
-          <span>Cocción</span>
+          <span>1. Cocción</span>
         </a>
         <a href="#conservacion" class="nav-tab">
-          <span>Conservación</span>
+          <span>2. Conservación</span>
         </a>
         <a href="#salsas" class="nav-tab">
-          <span>Salsas</span>
-        </a>
-        <a href="#contacto" class="nav-tab">
-          <span>Nosotros</span>
+          <span>3. Salsas</span>
         </a>
       </nav>
     </div>
@@ -639,7 +620,7 @@
     <!-- SECCIÓN 1: CÓMO COCINAR -->
     <section id="coccion">
       <div class="section-header">
-        <span class="section-eyebrow">Guía de preparación</span>
+        <span class="section-eyebrow">Paso a paso</span>
         <h2 class="section-title">El secreto está en la cocción</h2>
       </div>
 
@@ -688,7 +669,7 @@
 
         </div>
 
-        <!-- Timer Tool -->
+        <!-- Kitchen Timer Tool -->
         <div class="timer-container">
           <div class="timer-info">
             <span class="timer-label">Temporizador de cocina</span>
@@ -762,7 +743,7 @@
     <!-- SECCIÓN 3: RECETARIO DE SALSAS -->
     <section id="salsas">
       <div class="section-header">
-        <span class="section-eyebrow">Acompañamientos</span>
+        <span class="section-eyebrow">Acompañamientos sugeridos</span>
         <h2 class="section-title">Recetario de salsas</h2>
       </div>
 
@@ -946,76 +927,30 @@
           </div>
 
           <div class="sauce-note">
-            💡 <strong>Nota del chef:</strong> Si utilizás queso azul, recordá que su sabor es intenso; podés reducir la cantidad para una salsa más suave y equilibrada.
+            💡 <strong>Nota:</strong> Si utilizás queso azul, recordá que su sabor es intenso; podés reducir la cantidad para una salsa más suave y equilibrada.
           </div>
         </div>
       </div>
 
     </section>
 
-    <!-- SECCIÓN 4: NOSOTROS & CONTACTO -->
-    <section id="contacto">
-      <div class="about-card">
-        <span class="brand-eyebrow">Sobre Nosotros</span>
-        <h2 class="section-title" style="margin-bottom: 12px;">El arte de disfrutar la pasta</h2>
-        
-        <p class="about-story">
-          Cada comienzo tiene una historia, y la nuestra nace del amor, los recuerdos y las ganas de compartir algo rico.<br><br>
-          En ALBA elaboramos pastas artesanales con dedicación, cuidando cada detalle para que disfrutes en tu mesa de un plato especial.<br><br>
-          <strong>Gracias por elegir ALBA y dejarnos formar parte de tu mesa.</strong>
-        </p>
-
-        <div class="social-actions">
-          <a id="btnWhatsApp" href="https://wa.me/5491100000000?text=Hola%20ALBA!%20Prob%C3%A9%20sus%20sorrentinos%20y%20me%20encantaron.%20Quisiera%20hacer%20un%20pedido%20o%20consulta." target="_blank" rel="noopener" class="btn btn-whatsapp">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.57.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.18-.06-.1-.23-.17-.48-.29z"/>
-            </svg>
-            <span>Hacer un pedido por WhatsApp</span>
-          </a>
-
-          <a id="btnInstagram" href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-instagram">
-            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <span id="labelInstagram">Seguinos en Instagram</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <!-- Cierre informativo limpio -->
+    <div class="closing-card">
+      <h3 class="closing-title">Gracias por elegir ALBA</h3>
+      <p class="closing-text">
+        Esperamos que disfrutes cada bocado tanto como nosotros disfrutamos preparar nuestras pastas.<br><br>
+        <strong>¡Buen provecho!</strong> <span class="heart">❤️</span>
+      </p>
+    </div>
 
     <!-- Footer -->
     <footer>
-      <p>ALBA Pastas Artesanales · Hechas con amor <span class="heart">❤️</span></p>
-      <p style="margin-top: 4px; opacity: 0.7;">¡Buen provecho!</p>
+      <p>ALBA Pastas Artesanales · Hechas con amor</p>
     </footer>
 
   </div>
 
   <script>
-    // --- CONFIGURACIÓN RÁPIDA DE LA CLIENTA ---
-    const CONFIG = {
-      // Reemplazar con el número de teléfono con código de país (ej: 5491123456789)
-      whatsappNumber: "5491100000000",
-      // Mensaje inicial de WhatsApp
-      whatsappMessage: "¡Hola ALBA! Probé sus sorrentinos y me encantaron. Quisiera hacer una consulta o pedido.",
-      // Usuario de Instagram (sin el @)
-      instagramUser: "alba.pastas"
-    };
-
-    // Aplicar configuración a los botones
-    document.addEventListener("DOMContentLoaded", () => {
-      const waBtn = document.getElementById("btnWhatsApp");
-      const igBtn = document.getElementById("btnInstagram");
-      const igLabel = document.getElementById("labelInstagram");
-
-      if (waBtn && CONFIG.whatsappNumber) {
-        waBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
-      }
-
-      if (igBtn && CONFIG.instagramUser) {
-        igBtn.href = `https://instagram.com/${CONFIG.instagramUser}`;
-        if (igLabel) igLabel.textContent = `@${CONFIG.instagramUser} en Instagram`;
-      }
-    });
-
     // --- INTERACTIVIDAD DE SALSAS ---
     function showSauce(id, btn) {
       document.querySelectorAll('.sauce-card').forEach(card => card.classList.remove('active'));
@@ -1029,7 +964,7 @@
     }
 
     // --- TEMPORIZADOR DE COCCIÓN (5 MINUTOS) ---
-    let timerDuration = 5 * 60; // 5 minutos por defecto
+    const timerDuration = 5 * 60; // 5 minutos
     let timerRemaining = timerDuration;
     let timerInterval = null;
 
@@ -1045,7 +980,6 @@
       const display = document.getElementById('timerDisplay');
 
       if (timerInterval) {
-        // Pausar / reiniciar
         clearInterval(timerInterval);
         timerInterval = null;
         timerRemaining = timerDuration;
@@ -1054,7 +988,6 @@
         text.textContent = "Iniciar 5 min";
         btn.style.background = "var(--accent)";
       } else {
-        // Iniciar
         text.textContent = "Pausar / Reiniciar";
         btn.style.background = "#666";
 
@@ -1069,8 +1002,6 @@
             display.style.color = "#2D6A4F";
             text.textContent = "Reiniciar";
             btn.style.background = "var(--accent)";
-            
-            // Sonido beep suave con Web Audio API
             playBeep();
           }
         }, 1000);
@@ -1084,13 +1015,13 @@
         const gain = audioCtx.createGain();
         osc.connect(gain);
         gain.connect(audioCtx.destination);
-        osc.frequency.value = 660; // nota E5
+        osc.frequency.value = 660;
         gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
         osc.start();
         osc.stop(audioCtx.currentTime + 1.2);
       } catch (e) {
-        console.log("Audio not supported or permitted");
+        // Silencioso si el navegador bloquea audio
       }
     }
 

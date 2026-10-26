@@ -30,20 +30,29 @@
   
   <style>
     :root {
-      --bg: #FAFAF7;
-      --card-bg: #FFFFFF;
-      --card-subtle: #F4F1EB;
-      --text-main: #1D1D1B;
-      --text-muted: #6B6861;
-      --text-light: #949088;
-      --border: #E8E5DD;
-      --border-subtle: #F0EDE5;
-      --accent: #B25232;
-      --accent-soft: #F9EFEA;
+      /* PALETA ESTIMULANTE DEL APETITO (Gastro-Psicología Gourmet) */
+      --bg: #FAF5ED;                /* Crema Sémola cálido: harina de trigo, confort y calidez */
+      --card-bg: #FFFFFF;           /* Blanco puro de vajilla artesanal */
+      --card-subtle: #F5EBE0;       /* Tono manteca y masa fresca suave */
+      --text-main: #241611;         /* Café tostado oscuro / trufa: cálido, apetitoso y ultra legible */
+      --text-muted: #6E5A4E;        /* Tono cacao tostado suave */
+      --text-light: #9E887C;        /* Tono trigo suave */
+      --border: #E8D8C5;            /* Borde dorado suave artesanal */
+      --border-subtle: #F2E6D8;
+      
+      /* Acentos Cálidos (Activadores de Salivación y Apetito) */
+      --accent: #B83520;            /* Rojo Pomodoro maduro (estimula apetito y salivación) */
+      --accent-soft: #FDECE7;       /* Rubor suave de salsa pomodoro */
+      --accent-hover: #9E2916;      /* Rojo profundo braseado */
+      --amber: #D97706;             /* Dorado yema de huevo de campo / azafrán */
+      --amber-soft: #FEF3C7;        /* Crema de queso fundido suave */
+      --herb-green: #2B6143;        /* Verde albahaca fresca de huerta */
+      --herb-soft: #EAF3EC;
+      
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
-      --shadow-subtle: 0 4px 20px -2px rgba(29, 29, 27, 0.04);
+      --shadow-subtle: 0 6px 24px -2px rgba(184, 53, 32, 0.05);
       --font-serif: 'Playfair Display', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
@@ -117,13 +126,13 @@
 
     .nav-tabs {
       display: flex;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 4px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 18px rgba(184, 53, 32, 0.06);
       gap: 4px;
     }
 
@@ -143,8 +152,9 @@
     }
 
     .nav-tab.active, .nav-tab:hover {
-      background: var(--text-main);
+      background: var(--accent);
       color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(184, 53, 32, 0.25);
     }
 
     /* Sections */
@@ -202,7 +212,7 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: var(--card-subtle);
+      background: var(--accent-soft);
       color: var(--accent);
       font-weight: 700;
       font-size: 13px;
@@ -211,7 +221,7 @@
       justify-content: center;
       flex-shrink: 0;
       margin-top: 1px;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid rgba(184, 53, 32, 0.15);
     }
 
     .step-body {
@@ -233,10 +243,10 @@
 
     /* Kitchen Timer Component */
     .timer-container {
-      background: var(--accent-soft);
-      border: 1px solid rgba(178, 82, 50, 0.2);
+      background: linear-gradient(135deg, #FEF4ED 0%, #FEE8E2 100%);
+      border: 1px solid rgba(184, 53, 32, 0.22);
       border-radius: var(--radius-md);
-      padding: 16px;
+      padding: 16px 18px;
       margin-top: 20px;
       display: flex;
       align-items: center;
@@ -278,7 +288,8 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: background 0.2s;
+      box-shadow: 0 4px 12px rgba(184, 53, 32, 0.28);
+      transition: all 0.2s;
     }
 
     .timer-btn:active {
@@ -299,7 +310,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--text-main);
+      color: var(--accent);
       margin-bottom: 10px;
       display: flex;
       align-items: center;
@@ -325,7 +336,7 @@
       content: "•";
       position: absolute;
       left: 4px;
-      color: var(--accent);
+      color: var(--amber);
       font-weight: bold;
       font-size: 16px;
       top: -2px;
@@ -345,6 +356,7 @@
       padding: 14px;
       background: var(--card-subtle);
       border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
     }
 
     .conservation-icon {
@@ -366,13 +378,14 @@
 
     .badge-highlight {
       display: inline-block;
-      background: #EAF3EC;
-      color: #2D6A4F;
+      background: var(--amber-soft);
+      color: #9A3412;
       font-size: 11px;
       font-weight: 700;
-      padding: 2px 8px;
+      padding: 2px 10px;
       border-radius: 999px;
       margin-top: 4px;
+      border: 1px solid rgba(217, 119, 6, 0.2);
     }
 
     /* Sauces Tabs / Carousel */
@@ -404,9 +417,10 @@
     }
 
     .sauce-pill.active {
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent) 0%, #C94228 100%);
       border-color: var(--accent);
       color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(184, 53, 32, 0.25);
     }
 
     .sauce-card {
@@ -433,7 +447,7 @@
       width: 100%;
       overflow: hidden;
       position: relative;
-      background: #E8E5DD;
+      background: var(--card-subtle);
     }
 
     .sauce-img {
@@ -447,16 +461,17 @@
       position: absolute;
       top: 12px;
       left: 12px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(6px);
       padding: 4px 10px;
       border-radius: 999px;
       font-size: 11px;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--accent);
       display: flex;
       align-items: center;
       gap: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .sauce-content {
@@ -473,8 +488,8 @@
 
     .sauce-ideal {
       font-size: 13px;
-      color: var(--accent);
-      font-weight: 600;
+      color: var(--amber);
+      font-weight: 700;
       margin-bottom: 16px;
       display: block;
     }
@@ -484,7 +499,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--text-light);
+      color: var(--accent);
       margin-top: 16px;
       margin-bottom: 8px;
     }
@@ -535,11 +550,11 @@
     .sauce-note {
       margin-top: 16px;
       padding: 12px 14px;
-      background: var(--card-subtle);
+      background: var(--amber-soft);
       border-radius: var(--radius-sm);
       font-size: 12.5px;
-      color: var(--text-muted);
-      border-left: 3px solid var(--accent);
+      color: #78350F;
+      border-left: 3px solid var(--amber);
     }
 
     /* Minimal Closing Box */
@@ -575,7 +590,7 @@
     }
 
     .heart {
-      color: #D32F2F;
+      color: var(--accent);
       display: inline-block;
     }
 
